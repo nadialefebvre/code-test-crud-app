@@ -25,7 +25,7 @@ const ActionsList = ({ actions, fetchActions, isLoading }: Props) => {
   const filteredActions = actions.filter((item) =>
     inputSearch.includes(item.feeling)
   )
-
+  console.log("filteredActions:", filteredActions)
   const toggleSearch = (feeling: string) => {
     if (inputSearch.includes(feeling)) {
       setInputSearch((arr) => arr.filter((item) => item !== feeling))
@@ -56,7 +56,7 @@ const ActionsList = ({ actions, fetchActions, isLoading }: Props) => {
           Loading...
         </Typography>
       ) : (
-        (inputSearch.length === 0 ? actions : filteredActions)
+        filteredActions
           .map((item) => (
             <SingleAction
               key={item._id}
