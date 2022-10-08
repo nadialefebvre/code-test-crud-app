@@ -24,7 +24,7 @@ const Header = () => {
       >
         Find some motivation: list what you've done with how it made you feel.
         <br />
-        Warning! This lists disappears after 24hrs!
+        Warning! This list will be empty after 24hrs!
       </Typography>
     </Grid>
   )
