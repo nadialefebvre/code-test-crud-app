@@ -3,6 +3,7 @@ import Grid from "@mui/material/Grid"
 
 import { API_ENDPOINT } from "../utils/urls"
 import NewActionForm from "../components/NewActionForm"
+import ActionsList from "../components/ActionsList"
 import Header from "../components/Header"
 import EndpointRequest from "../components/EndpointRequest"
 import Footer from "../components/Footer"
@@ -37,11 +38,6 @@ const Start = () => {
       })
   }, [])
   // ---------------
-  console.log(actions)
-
-  if (isLoading) {
-    return <div>Loading...</div>
-  }
 
   return (
     <Grid container spacing={4} sx={{ justifyContent: "space-around" }}>
@@ -49,7 +45,14 @@ const Start = () => {
       {isEndpointExpired ? (
         <EndpointRequest />
       ) : (
-        <NewActionForm fetchActions={fetchActions} />
+        <>
+          <NewActionForm fetchActions={fetchActions} />
+          <ActionsList
+            actions={actions}
+            fetchActions={fetchActions}
+            isLoading={isLoading}
+          />
+        </>
       )}
       <Footer />
     </Grid>
