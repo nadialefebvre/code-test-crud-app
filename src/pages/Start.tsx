@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react"
+import React, { useCallback, useState } from "react"
 import Grid from "@mui/material/Grid"
 
 import { API_ENDPOINT } from "../utils/urls"
+import NewActionForm from "../components/NewActionForm"
 import Header from "../components/Header"
 import EndpointRequest from "../components/EndpointRequest"
 import Footer from "../components/Footer"
@@ -12,7 +13,7 @@ const Start = () => {
   const [isEndpointExpired, setIsEndpointExpired] = useState(false)
 
   // ----- FETCH ITEMS -----
-  useEffect(() => {
+  const fetchActions = useCallback(() => {
     setIsLoading(true)
 
     const options = {
@@ -48,9 +49,7 @@ const Start = () => {
       {isEndpointExpired ? (
         <EndpointRequest />
       ) : (
-        <>
-          <div>list here</div>
-        </>
+        <NewActionForm fetchActions={fetchActions} />
       )}
       <Footer />
     </Grid>
