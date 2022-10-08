@@ -168,6 +168,8 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
               sx={[
                 { fontSize: 20 },
                 isEditable && {
+                  borderTopLeftRadius: "4px",
+                  borderTopRightRadius: "4px",
                   backgroundColor: "#eef4f7",
                   borderBottom: "1px solid rgba(0, 0, 0, 0.42)",
                   "&:hover": { backgroundColor: "#eef4f7" },
