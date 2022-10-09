@@ -24,7 +24,7 @@ const NewActionForm = ({ fetchActions }: Props) => {
   const [inputFeeling, setInputFeeling] = useState("")
 
   // ----- ADD ITEM -----
-  const addAction = (e: any) => {
+  const addAction = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     if (inputText === "") {
       alert("Text is required")
@@ -50,7 +50,7 @@ const NewActionForm = ({ fetchActions }: Props) => {
           setInputText("")
           setInputFeeling("")
         })
-        .catch((err) => console.error("Error:", err))
+        .catch((err) => console.error("Error in NewActionForm(addAction):", err))
     }
   }
   // ---------------
