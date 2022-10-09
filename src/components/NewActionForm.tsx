@@ -50,7 +50,9 @@ const NewActionForm = ({ fetchActions }: Props) => {
           setInputText("")
           setInputFeeling("")
         })
-        .catch((err) => console.error("Error in NewActionForm(addAction):", err))
+        .catch((err) =>
+          console.error("Error in NewActionForm(addAction):", err)
+        )
     }
   }
   // ---------------
@@ -86,7 +88,7 @@ const NewActionForm = ({ fetchActions }: Props) => {
               sx={{
                 "& .MuiFilledInput-root": {
                   backgroundColor: "#eef4f7",
-                  "&:hover": { backgroundColor: "#fff" }
+                  "&:hover": { backgroundColor: "#fff" },
                 },
               }}
               id="filled-basic"
