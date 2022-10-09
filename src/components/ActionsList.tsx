@@ -20,17 +20,17 @@ interface Props {
 const ActionsList = ({ actions, fetchActions, isLoading }: Props) => {
   useEffect(() => fetchActions(), [fetchActions])
 
-  const [inputSearch, setInputSearch] = useState<string[]>(feelings)
+  const [selectedFeelings, setSelectedFeelings] = useState<string[]>(feelings)
 
   const filteredActions = actions.filter((item) =>
-    inputSearch.includes(item.feeling)
+    selectedFeelings.includes(item.feeling)
   )
 
   const toggleSearch = (feeling: string) => {
-    if (inputSearch.includes(feeling)) {
-      setInputSearch((arr) => arr.filter((item) => item !== feeling))
+    if (selectedFeelings.includes(feeling)) {
+      setSelectedFeelings((arr) => arr.filter((item) => item !== feeling))
     } else {
-      setInputSearch([...inputSearch, feeling])
+      setSelectedFeelings([...selectedFeelings, feeling])
     }
   }
 
@@ -44,7 +44,7 @@ const ActionsList = ({ actions, fetchActions, isLoading }: Props) => {
                 key={item}
                 label={item}
                 color="secondary"
-                variant={inputSearch.includes(item) ? "filled" : "outlined"}
+                variant={selectedFeelings.includes(item) ? "filled" : "outlined"}
                 onClick={() => toggleSearch(item)}
               />
             ))}
