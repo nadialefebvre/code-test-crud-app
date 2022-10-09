@@ -18,7 +18,6 @@ import SaveIcon from "@mui/icons-material/Save"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
 import Chip from "@mui/material/Chip"
 import Stack from "@mui/material/Stack"
-// import TextField from "@mui/material/TextField"
 
 interface Props {
   action: IRootObject
@@ -58,7 +57,6 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
     }
 
     fetch(API_ENDPOINT(`actions/${actionId}`), options)
-      // .then(res => res.json())
       .then(() => fetchActions())
       .catch((err) => console.error("Error in SingleAction(Update):", err))
 
@@ -69,10 +67,6 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
   const changingText = (e: any) => {
     setText(e.currentTarget.textContent)
   }
-
-  // const changingFeeling = (e: any) => {
-  //   setFeeling(e.currentTarget.textContent)
-  // }
 
   const formattedTimestamp = formatDistanceToNow(new Date(action.timestamp), {
     addSuffix: true,
@@ -129,40 +123,6 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
               </Stack>
             </Stack>
 
-            {/*
-            {isEditable ? (
-              <TextField
-                sx={{
-                  "& .MuiFilledInput-root": {
-                    backgroundColor: "#eef4f7",
-                  },
-                }}
-                id="filled-basic"
-                // label="What have I done?"
-                variant="filled"
-                fullWidth
-                multiline
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                  setText(e.target.value)
-                }
-                value={text}
-              />
-            ) : (
-              <Typography
-                sx={[
-                  { fontSize: 20 },
-                  isEditable && { backgroundColor: "lightgoldenrodyellow" },
-                ]}
-                variant="body1"
-                // color="text.secondary"
-                contentEditable={isEditable}
-                onBlur={(e: any) => changingText(e)}
-              >
-                {action.text}
-              </Typography>
-            )}
-              */}
-
             <Typography
               sx={[
                 { fontSize: 20 },
@@ -177,6 +137,7 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
               variant="body1"
               color="#385f73"
               contentEditable={isEditable}
+              suppressContentEditableWarning={true}
               onBlur={(e: any) => changingText(e)}
             >
               {action.text}
