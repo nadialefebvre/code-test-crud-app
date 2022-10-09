@@ -26,7 +26,7 @@ Here are the steps I went through:
 
 **App features**
 
-*Comment:* Data consists in actions, and each object has four properties: `_id` (automatically generated via CrudCrud API), `text` (input by user), `feeling` (input by user) and `timestamp` (automatically generated via code). The user can filter the items by clicking one or many chips under the form. I added an `isEndpointExpired` check since the endpoint has a 24hrs/100 requests lifetime. The value of the `endpointIdentifier` variable can be easily changed in the code `(src/utils/urls.ts)` to start over with a new enpoint.
+*Comment:* Data consists in actions, and each object has four properties: `_id` (automatically generated via CrudCrud API), `text` (input by user), `feeling` (input by user) and `timestamp` (automatically generated via code). The user can filter the items by clicking one or many chips under the form. I added an `isEndpointExpired` check since the endpoint has a 24hrs/100 requests lifetime. The value of the `endpointIdentifier` variable can be easily changed in the code `(src/utils/urls.ts)` to start over with a new enpoint. I made sure that the layout was responsive.
 
 *Further improvement:* Time was limited so of course I could change/add many things but just to give one example: better handling of loading state and required fields.
 
