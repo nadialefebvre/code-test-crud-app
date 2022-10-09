@@ -68,7 +68,7 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
   }
   // ---------------
 
-  const changingText = (e: React.FocusEvent<HTMLSpanElement, Element>) => {
+  const changeText = (e: React.FocusEvent<HTMLSpanElement, Element>) => {
     setText(e.currentTarget.textContent)
   }
 
@@ -143,7 +143,7 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
               contentEditable={isEditable}
               suppressContentEditableWarning={true}
               onBlur={(e: React.FocusEvent<HTMLSpanElement, Element>) =>
-                changingText(e)
+                changeText(e)
               }
             >
               {action.text}
