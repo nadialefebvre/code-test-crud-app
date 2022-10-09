@@ -44,27 +44,31 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
 
   // ----- CONFIRM ITEM UPDATE -----
   const confirmActionUpdate = (actionId: string) => {
-    const options = {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        text,
-        feeling,
-        timestamp: action.timestamp,
-      }),
+    if (text === "") {
+      alert("Text is required")
+    } else {
+      const options = {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          text,
+          feeling,
+          timestamp: action.timestamp,
+        }),
+      }
+
+      fetch(API_ENDPOINT(`actions/${actionId}`), options)
+        .then(() => fetchActions())
+        .catch((err) => console.error("Error in SingleAction(Update):", err))
+
+      setIsEditable(false)
     }
-
-    fetch(API_ENDPOINT(`actions/${actionId}`), options)
-      .then(() => fetchActions())
-      .catch((err) => console.error("Error in SingleAction(Update):", err))
-
-    setIsEditable(false)
   }
   // ---------------
 
-  const changingText = (e: any) => {
+  const changingText = (e: React.FocusEvent<HTMLSpanElement, Element>) => {
     setText(e.currentTarget.textContent)
   }
 
@@ -138,7 +142,9 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
               color="#385f73"
               contentEditable={isEditable}
               suppressContentEditableWarning={true}
-              onBlur={(e: any) => changingText(e)}
+              onBlur={(e: React.FocusEvent<HTMLSpanElement, Element>) =>
+                changingText(e)
+              }
             >
               {action.text}
             </Typography>
