@@ -125,7 +125,7 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
 
             <Typography
               sx={[
-                { fontSize: 20 },
+                { fontSize: 20, overflowWrap: "break-word" },
                 isEditable && {
                   borderTopLeftRadius: "4px",
                   borderTopRightRadius: "4px",

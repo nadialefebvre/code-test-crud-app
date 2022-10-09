@@ -10,12 +10,7 @@ import Start from "./pages/Start"
 const App = () => {
   return (
     <ThemeProvider theme={theme}>
-      <Box
-        sx={{
-          flexGrow: 1,
-          margin: 10,
-        }}
-      >
+      <Box sx={{ margin: 4 }}>
         <Box
           sx={{
             maxWidth: 900,
