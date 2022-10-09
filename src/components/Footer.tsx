@@ -20,7 +20,7 @@ const Footer = () => {
           Nadia Lefebvre
         </Link>
         <br />
-        Source code available on{" "}
+        Source code on{" "}
         <Link
           href="https://github.com/nadialefebvre/code-test-crud-app"
           target="_blank"
