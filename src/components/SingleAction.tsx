@@ -32,20 +32,19 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
   const [feeling, setFeeling] = useState(action.feeling)
 
   // ----- DELETE ITEM -----
-  const deleteAction = (actionId: any) => {
+  const deleteAction = (actionId: string) => {
     const options = {
       method: "DELETE",
     }
 
     fetch(API_ENDPOINT(`actions/${actionId}`), options)
-      // .then(res => res.json())
       .then(() => fetchActions())
       .catch((err) => console.error("Error in SingleAction(Delete):", err))
   }
   // ---------------
 
   // ----- CONFIRM ITEM UPDATE -----
-  const confirmActionUpdate = (actionId: any) => {
+  const confirmActionUpdate = (actionId: string) => {
     const options = {
       method: "PUT",
       headers: {

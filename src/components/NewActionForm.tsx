@@ -24,8 +24,8 @@ const NewActionForm = ({ fetchActions }: Props) => {
   const [inputFeeling, setInputFeeling] = useState("")
 
   // ----- ADD ITEM -----
-  const addAction = (event: any) => {
-    event.preventDefault()
+  const addAction = (e: any) => {
+    e.preventDefault()
     if (inputText === "") {
       alert("Text is required")
     } else if (inputFeeling === "") {

@@ -17,14 +17,7 @@ const Start = () => {
   const fetchActions = useCallback(() => {
     setIsLoading(true)
 
-    const options = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-
-    fetch(API_ENDPOINT("actions"), options)
+    fetch(API_ENDPOINT("actions"))
       .then((res) => res.json())
       .then((data) => {
         setActions(data)
@@ -32,7 +25,7 @@ const Start = () => {
         setIsEndpointExpired(false)
       })
       .catch((err) => {
-        console.error("Error in App: ", err)
+        console.error("Error in Start: ", err)
         setIsLoading(false)
         setIsEndpointExpired(true)
       })
