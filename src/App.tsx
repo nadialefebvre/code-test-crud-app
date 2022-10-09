@@ -9,28 +9,26 @@ import Start from "./pages/Start"
 
 const App = () => {
   return (
-    <>
-      <ThemeProvider theme={theme}>
+    <ThemeProvider theme={theme}>
+      <Box
+        sx={{
+          flexGrow: 1,
+          margin: 10,
+        }}
+      >
         <Box
           sx={{
-            flexGrow: 1,
-            margin: 10,
+            maxWidth: 900,
+            mt: 0,
+            mb: 0,
+            ml: "auto",
+            mr: "auto",
           }}
         >
-          <Box
-            sx={{
-              maxWidth: 900,
-              mt: 0,
-              mb: 0,
-              ml: "auto",
-              mr: "auto",
-            }}
-          >
-            <Start />
-          </Box>
+          <Start />
         </Box>
-      </ThemeProvider>
-    </>
+      </Box>
+    </ThemeProvider>
   )
 }
 
