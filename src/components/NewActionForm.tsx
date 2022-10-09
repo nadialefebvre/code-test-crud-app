@@ -13,7 +13,7 @@ import Box from "@mui/material/Box"
 
 import { API_ENDPOINT } from "../utils/urls"
 
-import { feelings } from "../utils/feelings"
+import { feelings } from "../utils/arrays"
 
 interface Props {
   fetchActions: () => void

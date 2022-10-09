@@ -4,7 +4,7 @@ import { formatDistanceToNow } from "date-fns"
 import { API_ENDPOINT } from "../utils/urls"
 import { IRootObject } from "../types/types"
 
-import { feelings } from "../utils/feelings"
+import { feelings } from "../utils/arrays"
 
 import Grid from "@mui/material/Grid"
 

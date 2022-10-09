@@ -7,7 +7,7 @@ import Typography from "@mui/material/Typography"
 
 import SingleAction from "./SingleAction"
 
-import { feelings } from "../utils/feelings"
+import { feelings } from "../utils/arrays"
 
 import { actionsJSON } from "../types/types"
 
@@ -25,7 +25,7 @@ const ActionsList = ({ actions, fetchActions, isLoading }: Props) => {
   const filteredActions = actions.filter((item) =>
     inputSearch.includes(item.feeling)
   )
-  console.log("filteredActions:", filteredActions)
+
   const toggleSearch = (feeling: string) => {
     if (inputSearch.includes(feeling)) {
       setInputSearch((arr) => arr.filter((item) => item !== feeling))
