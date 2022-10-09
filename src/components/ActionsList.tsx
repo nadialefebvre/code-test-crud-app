@@ -1,15 +1,12 @@
 import React, { useEffect, useState } from "react"
-
 import Grid from "@mui/material/Grid"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
 
-import SingleAction from "./SingleAction"
-
-import { feelings } from "../utils/arrays"
-
-import { actionsJSON } from "../types/types"
 import FeelingChip from "./FeelingChip"
+import SingleAction from "./SingleAction"
+import { actionsJSON } from "../types/types"
+import { feelings } from "../utils/arrays"
 
 interface Props {
   actions: actionsJSON
@@ -18,8 +15,6 @@ interface Props {
 }
 
 const ActionsList = ({ actions, fetchActions, isLoading }: Props) => {
-  useEffect(() => fetchActions(), [fetchActions])
-
   const [selectedFeelings, setSelectedFeelings] = useState<string[]>(feelings)
 
   const filteredActions = actions.filter((item) =>
@@ -33,6 +28,8 @@ const ActionsList = ({ actions, fetchActions, isLoading }: Props) => {
       setSelectedFeelings([...selectedFeelings, feeling])
     }
   }
+
+  useEffect(() => fetchActions(), [fetchActions])
 
   return (
     <>
@@ -53,6 +50,7 @@ const ActionsList = ({ actions, fetchActions, isLoading }: Props) => {
           </Stack>
         </Grid>
       )}
+
       {isLoading ? (
         <Typography variant="body1" color="text.secondary">
           Loading...

@@ -1,11 +1,9 @@
 import React from "react"
-
 import Box from "@mui/material/Box"
 import { ThemeProvider } from "@mui/material/styles"
 
-import { theme } from "./utils/theme"
-
 import Start from "./pages/Start"
+import { theme } from "./utils/theme"
 
 const App = () => {
   return (

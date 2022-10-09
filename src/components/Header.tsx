@@ -17,6 +17,7 @@ const Header = () => {
       >
         • Well Done •
       </Typography>
+
       <Typography
         sx={{ textAlign: "center", fontWeight: 300 }}
         variant="h5"

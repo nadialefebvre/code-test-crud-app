@@ -1,24 +1,20 @@
 import React, { useState } from "react"
 import { formatDistanceToNow } from "date-fns"
-
-import { API_ENDPOINT } from "../utils/urls"
-import { IRootObject } from "../types/types"
-
-import { feelings } from "../utils/arrays"
-
 import Grid from "@mui/material/Grid"
-
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
+import Stack from "@mui/material/Stack"
 import IconButton from "@mui/material/IconButton"
 import Typography from "@mui/material/Typography"
 import EditIcon from "@mui/icons-material/Edit"
 import SaveIcon from "@mui/icons-material/Save"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
-import Stack from "@mui/material/Stack"
 
 import FeelingChip from "./FeelingChip"
+import { API_ENDPOINT } from "../utils/urls"
+import { IRootObject } from "../types/types"
+import { feelings } from "../utils/arrays"
 
 interface Props {
   action: IRootObject
@@ -31,7 +27,10 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
   const [text, setText] = useState(action.text)
   const [feeling, setFeeling] = useState(action.feeling)
 
-  // ----- DELETE ITEM -----
+  const formattedTimestamp = formatDistanceToNow(new Date(action.timestamp), {
+    addSuffix: true,
+  })
+
   const deleteAction = (actionId: string) => {
     const options = {
       method: "DELETE",
@@ -41,9 +40,7 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
       .then(() => fetchActions())
       .catch((err) => console.error("Error in SingleAction(Delete):", err))
   }
-  // ---------------
 
-  // ----- CONFIRM ITEM UPDATE -----
   const confirmActionUpdate = (actionId: string) => {
     if (text === "") {
       alert("Text is required")
@@ -67,18 +64,9 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
       setIsEditable(false)
     }
   }
-  // ---------------
 
   const changeText = (e: React.FocusEvent<HTMLSpanElement, Element>) => {
     setText(e.currentTarget.textContent)
-  }
-
-  const formattedTimestamp = formatDistanceToNow(new Date(action.timestamp), {
-    addSuffix: true,
-  })
-
-  if (isLoading) {
-    return <div>Loading...</div>
   }
 
   return (
@@ -167,6 +155,7 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
                 <EditIcon />
               </IconButton>
             )}
+
             <IconButton
               onClick={() => deleteAction(action._id)}
               sx={{ "&:hover": { color: "#d1434c" } }}

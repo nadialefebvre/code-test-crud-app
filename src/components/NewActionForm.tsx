@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-
 import Grid from "@mui/material/Grid"
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
@@ -11,9 +10,7 @@ import Stack from "@mui/material/Stack"
 import Box from "@mui/material/Box"
 
 import FeelingChip from "./FeelingChip"
-
 import { API_ENDPOINT } from "../utils/urls"
-
 import { feelings } from "../utils/arrays"
 
 interface Props {
@@ -24,9 +21,9 @@ const NewActionForm = ({ fetchActions }: Props) => {
   const [inputText, setInputText] = useState("")
   const [inputFeeling, setInputFeeling] = useState("")
 
-  // ----- ADD ITEM -----
   const addAction = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+
     if (inputText === "") {
       alert("Text is required")
     } else if (inputFeeling === "") {
@@ -56,7 +53,6 @@ const NewActionForm = ({ fetchActions }: Props) => {
         )
     }
   }
-  // ---------------
 
   return (
     <Grid item xs={12}>
@@ -103,6 +99,7 @@ const NewActionForm = ({ fetchActions }: Props) => {
               value={inputText}
             />
           </CardContent>
+
           <CardActions sx={{ justifyContent: "center" }}>
             <IconButton sx={{ "&:hover": { color: "#385f73" } }} type="submit">
               <AddIcon sx={{ fontSize: 60 }} />
