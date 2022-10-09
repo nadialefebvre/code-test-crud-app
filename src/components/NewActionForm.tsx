@@ -6,10 +6,11 @@ import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
 import IconButton from "@mui/material/IconButton"
 import AddIcon from "@mui/icons-material/Add"
-import Chip from "@mui/material/Chip"
 import TextField from "@mui/material/TextField"
 import Stack from "@mui/material/Stack"
 import Box from "@mui/material/Box"
+
+import FeelingChip from "./FeelingChip"
 
 import { API_ENDPOINT } from "../utils/urls"
 
@@ -73,13 +74,13 @@ const NewActionForm = ({ fetchActions }: Props) => {
               sx={{ mb: 1.5, justifyContent: "flex-end" }}
             >
               {feelings.map((item) => (
-                <Chip
+                <FeelingChip
                   key={item}
+                  color="secondary"
                   label={item}
                   size="small"
-                  color="secondary"
                   variant={item === inputFeeling ? "filled" : "outlined"}
-                  onClick={() => setInputFeeling(item)}
+                  onClickFunction={() => setInputFeeling(item)}
                 />
               ))}
             </Stack>

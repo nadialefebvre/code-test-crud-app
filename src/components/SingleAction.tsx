@@ -16,8 +16,9 @@ import Typography from "@mui/material/Typography"
 import EditIcon from "@mui/icons-material/Edit"
 import SaveIcon from "@mui/icons-material/Save"
 import DeleteForeverIcon from "@mui/icons-material/DeleteForever"
-import Chip from "@mui/material/Chip"
 import Stack from "@mui/material/Stack"
+
+import FeelingChip from "./FeelingChip"
 
 interface Props {
   action: IRootObject
@@ -106,21 +107,21 @@ const SingleAction = ({ action, isLoading, fetchActions }: Props) => {
                 {isEditable ? (
                   <>
                     {feelings.map((item) => (
-                      <Chip
+                      <FeelingChip
                         key={item}
+                        color="secondary"
                         label={item}
                         size="small"
-                        color="secondary"
                         variant={item === feeling ? "filled" : "outlined"}
-                        onClick={() => setFeeling(item)}
+                        onClickFunction={() => setFeeling(item)}
                       />
                     ))}
                   </>
                 ) : (
-                  <Chip
+                  <FeelingChip
+                    color="primary"
                     label={action.feeling}
                     size="small"
-                    color="secondary"
                     variant="filled"
                   />
                 )}

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 
-import Chip from "@mui/material/Chip"
 import Grid from "@mui/material/Grid"
 import Stack from "@mui/material/Stack"
 import Typography from "@mui/material/Typography"
@@ -10,6 +9,7 @@ import SingleAction from "./SingleAction"
 import { feelings } from "../utils/arrays"
 
 import { actionsJSON } from "../types/types"
+import FeelingChip from "./FeelingChip"
 
 interface Props {
   actions: actionsJSON
@@ -40,12 +40,14 @@ const ActionsList = ({ actions, fetchActions, isLoading }: Props) => {
         <Grid item xs={12}>
           <Stack direction="row" spacing={4} sx={{ justifyContent: "center" }}>
             {feelings.map((item) => (
-              <Chip
+              <FeelingChip
                 key={item}
-                label={item}
                 color="secondary"
-                variant={selectedFeelings.includes(item) ? "filled" : "outlined"}
-                onClick={() => toggleSearch(item)}
+                label={item}
+                variant={
+                  selectedFeelings.includes(item) ? "filled" : "outlined"
+                }
+                onClickFunction={() => toggleSearch(item)}
               />
             ))}
           </Stack>
