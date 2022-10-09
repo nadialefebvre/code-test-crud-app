@@ -26,7 +26,7 @@ https://well-done-list.netlify.app/
 
 **App features**
 
-*Comment:* .
+*Comment:* Data consists in actions, and each object has four properties: `_id` (automatically generated via CrudCrud API), `text` (input by user), `feeling` (input by user) and `timestamp` (automatically generated via code). The user can filter the items by clicking the chips under the form.
 
 *Further improvement:* Time was limited.
 
@@ -62,7 +62,7 @@ About continuous integration (CI): I haven't worked with that before, but I deci
 It was a fun little project to build! I am quite happy with the result and all the process.
 
 
-### Available Scripts
+## Available Scripts
 
 In the project directory, you can run:
 
