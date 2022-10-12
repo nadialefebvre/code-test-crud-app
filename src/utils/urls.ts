@@ -1,6 +1,6 @@
 // This variable is the one to change every 24hrs
 // Get the identifier here: https://crudcrud.com
-export const endpointIdentifier = "c35abc5e3dac49bfaf7a73083232d8bd"
+export const endpointIdentifier = "6705124f8e974416a0a401d4dff7bad5"
 
 const BASE_URL = `https://crudcrud.com/api/${endpointIdentifier}`
 
