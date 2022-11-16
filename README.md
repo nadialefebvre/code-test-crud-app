@@ -1,4 +1,6 @@
-# code-test-crud-app
+# Project Well Done
+
+My solution for a code test in a recruitment process: build a TypeScript React CRUD app
 
 ## Task for this code test
 
