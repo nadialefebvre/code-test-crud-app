@@ -2,6 +2,15 @@
 
 My solution for a code test in a recruitment process: build a TypeScript React CRUD app
 
+## Tech stack
+
+- TypeScript
+- React
+- HTML
+- CSS
+- Material UI
+- API
+
 ## Task for this code test
 
 Build a simple CRUD web app using a temporary endpoint from [CrudCrud](https://crudcrud.com/), with any frontend framework.
