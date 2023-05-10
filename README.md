@@ -1,6 +1,6 @@
 # Project Well Done
 
-My solution for a code test in a recruitment process: build a TypeScript React CRUD app
+My solution for a code test in a recruitment process: build a TypeScript React CRUD app (October 2022)
 
 ## Tech stack
 
